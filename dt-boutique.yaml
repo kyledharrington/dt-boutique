@@ -716,7 +716,7 @@ spec:
   selector:
     matchLabels:
       run: nginx
-  replicas: 2
+  replicas: 1
   template:
     metadata:
       labels:
@@ -768,7 +768,7 @@ data:
      tcp_nodelay on;
      keepalive_timeout 65;
      types_hash_max_size 2048;
-     access_log off;
+     access_log on;
      include /etc/nginx/mime.types;
      default_type application/octet-stream;
      access_log /var/log/nginx/access.log;
@@ -784,3 +784,4 @@ data:
      }
      }
     }
+
