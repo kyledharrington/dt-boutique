@@ -1,0 +1,40 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  annotations:
+    pv.kubernetes.io/provisioned-by: pd.csi.storage.gke.io
+  finalizers:
+  - kubernetes.io/pv-protection
+  - external-attacher/pd-csi-storage-gke-io
+  name: pvc-c9a44c07-cffa-4cd8-b92b-15bac9a9b984
+  uid: d52af557-edf5-4f96-8e89-42a3008209e6
+spec:
+  accessModes:
+  - ReadWriteOnce
+  capacity:
+    storage: 30Gi
+  claimRef:
+    apiVersion: v1
+    kind: PersistentVolumeClaim
+    name: pvc-demo
+    namespace: default
+    uid: c9a44c07-cffa-4cd8-b92b-15bac9a9b984
+  csi:
+    driver: pd.csi.storage.gke.io
+    fsType: ext4
+    volumeAttributes:
+      storage.kubernetes.io/csiProvisionerIdentity: 1660085000920-8081-pd.csi.storage.gke.io
+    volumeHandle: projects/xxx/zones/us-central1-c/disks/pvc-c9a44c07-cffa-4cd8-b92b-15bac9a9b984
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: topology.gke.io/zone
+          operator: In
+          values:
+          - us-central1-c
+  persistentVolumeReclaimPolicy: Delete
+  storageClassName: standard-rwo
+  volumeMode: Filesystem
+status:
+  phase: Bound
