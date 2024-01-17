@@ -28,6 +28,10 @@ spec:
     metadata:
       labels:
         app: emailservice
+        app.kubernetes.io/name: hipster-emailservice
+        app.kubernetes.io/part-of: hipster-shop
+        app.kubernetes.io/version: 2.0.3
+        app.kubernetes.io/stage: production
     spec:
       serviceAccountName: default
       terminationGracePeriodSeconds: 5
@@ -43,6 +47,22 @@ spec:
         #   value: "1"
         - name: DISABLE_PROFILER
           value: "1"
+        - name: "DT_RELEASE_VERSION"
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.labels['app.kubernetes.io/version']
+        - name: DT_RELEASE_BUILD_VERSION
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.labels['app.kubernetes.io/version']
+        - name: "DT_RELEASE_PRODUCT"
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.labels['app.kubernetes.io/part-of']
+        - name: DT_RELEASE_STAGE
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.labels['app.kubernetes.io/stage']
         readinessProbe:
           periodSeconds: 5
           exec:
@@ -84,6 +104,10 @@ spec:
     metadata:
       labels:
         app: checkoutservice
+        app.kubernetes.io/name: hipster-checkout
+        app.kubernetes.io/part-of: hipster-shop
+        app.kubernetes.io/version: 2.0.3
+        app.kubernetes.io/stage: production
     spec:
       serviceAccountName: default
       containers:
@@ -111,7 +135,23 @@ spec:
           - name: CURRENCY_SERVICE_ADDR
             value: "currencyservice:7000"
           - name: CART_SERVICE_ADDR
-            value: "cartservice:7070"
+            value: "cartservice:7070"     
+          - name: "DT_RELEASE_VERSION"
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.labels['app.kubernetes.io/version']
+          - name: DT_RELEASE_BUILD_VERSION
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.labels['app.kubernetes.io/version']
+          - name: "DT_RELEASE_PRODUCT"
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.labels['app.kubernetes.io/part-of']
+          - name: DT_RELEASE_STAGE 
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.labels['app.kubernetes.io/stage']
           # - name: DISABLE_STATS
           #   value: "1"
           # - name: DISABLE_TRACING
@@ -153,6 +193,10 @@ spec:
     metadata:
       labels:
         app: recommendationservice
+        app.kubernetes.io/name: hipster-recommendationservice
+        app.kubernetes.io/part-of: hipster-shop
+        app.kubernetes.io/version: 2.0.3
+        app.kubernetes.io/stage: production      
     spec:
       serviceAccountName: default
       terminationGracePeriodSeconds: 5
@@ -173,7 +217,23 @@ spec:
         - name: PORT
           value: "8080"
         - name: PRODUCT_CATALOG_SERVICE_ADDR
-          value: "productcatalogservice:3550"
+          value: "productcatalogservice:3550"      
+        - name: "DT_RELEASE_VERSION"
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.labels['app.kubernetes.io/version']
+        - name: DT_RELEASE_BUILD_VERSION
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.labels['app.kubernetes.io/version']
+        - name: "DT_RELEASE_PRODUCT"
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.labels['app.kubernetes.io/part-of']
+        - name: DT_RELEASE_STAGE
+          valueFrom:
+              fieldRef:
+                fieldPath: metadata.labels['app.kubernetes.io/stage']
         # - name: DISABLE_TRACING
         #   value: "1"
         # - name: DISABLE_PROFILER
@@ -213,6 +273,10 @@ spec:
     metadata:
       labels:
         app: frontend
+        app.kubernetes.io/name: hipster-frontend
+        app.kubernetes.io/part-of: hipster-shop
+        app.kubernetes.io/version: 2.0.3
+        app.kubernetes.io/stage: production
       annotations:
         sidecar.istio.io/rewriteAppHTTPProbers: "true"
     spec:
@@ -256,7 +320,23 @@ spec:
           - name: AD_SERVICE_ADDR
             value: "adservice:9555"
           - name: ENV_PLATFORM
-            value: "gcp"
+            value: "gcp"      
+          - name: "DT_RELEASE_VERSION"
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.labels['app.kubernetes.io/version']
+          - name: DT_RELEASE_BUILD_VERSION
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.labels['app.kubernetes.io/version']
+          - name: "DT_RELEASE_PRODUCT"
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.labels['app.kubernetes.io/part-of']
+          - name: DT_RELEASE_STAGE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.labels['app.kubernetes.io/stage']
           # - name: DISABLE_TRACING
           #   value: "1"
           # - name: DISABLE_PROFILER
@@ -296,6 +376,10 @@ spec:
     metadata:
       labels:
         app: paymentservice
+        app.kubernetes.io/name: hipster-paymentservice
+        app.kubernetes.io/part-of: hipster-shop
+        app.kubernetes.io/version: 2.0.3
+        app.kubernetes.io/stage: production
     spec:
       serviceAccountName: default
       terminationGracePeriodSeconds: 5
@@ -306,7 +390,23 @@ spec:
         - containerPort: 50051
         env:
         - name: PORT
-          value: "50051"
+          value: "50051" 
+        - name: "DT_RELEASE_VERSION"
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.labels['app.kubernetes.io/version']
+        - name: DT_RELEASE_BUILD_VERSION
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.labels['app.kubernetes.io/version']
+        - name: "DT_RELEASE_PRODUCT"
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.labels['app.kubernetes.io/part-of']
+        - name: DT_RELEASE_STAGE
+          valueFrom:
+              fieldRef:
+                fieldPath: metadata.labels['app.kubernetes.io/stage']
         readinessProbe:
           exec:
             command: ["/bin/grpc_health_probe", "-addr=:50051"]
@@ -346,6 +446,10 @@ spec:
     metadata:
       labels:
         app: productcatalogservice
+        app.kubernetes.io/name: hipster-productcatalogservice
+        app.kubernetes.io/part-of: hipster-shop
+        app.kubernetes.io/version: 2.0.3
+        app.kubernetes.io/stage: production
     spec:
       serviceAccountName: default
       terminationGracePeriodSeconds: 5
@@ -357,6 +461,22 @@ spec:
         env:
         - name: PORT
           value: "3550"
+        - name: "DT_RELEASE_VERSION"
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.labels['app.kubernetes.io/version']
+        - name: DT_RELEASE_BUILD_VERSION
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.labels['app.kubernetes.io/version']
+        - name: "DT_RELEASE_PRODUCT"
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.labels['app.kubernetes.io/part-of']
+        - name: DT_RELEASE_STAGE
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.labels['app.kubernetes.io/stage']
         # - name: DISABLE_STATS
         #   value: "1"
         # - name: DISABLE_TRACING
@@ -404,6 +524,11 @@ spec:
     metadata:
       labels:
         app: cartservice
+        dt.owner: cart-team
+        app.kubernetes.io/name: hipster-cartservice
+        app.kubernetes.io/part-of: hipster-shop
+        app.kubernetes.io/version: 2.0.3
+        app.kubernetes.io/stage: production
     spec:
       serviceAccountName: default
       terminationGracePeriodSeconds: 5
@@ -415,6 +540,22 @@ spec:
         env:
         - name: REDIS_ADDR
           value: "redis-cart:6379"
+        - name: "DT_RELEASE_VERSION"
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.labels['app.kubernetes.io/version']
+        - name: DT_RELEASE_BUILD_VERSION
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.labels['app.kubernetes.io/version']
+        - name: "DT_RELEASE_PRODUCT"
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.labels['app.kubernetes.io/part-of']
+        - name: DT_RELEASE_STAGE
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.labels['app.kubernetes.io/stage']
         resources:
           requests:
             cpu: 200m
@@ -458,6 +599,10 @@ spec:
     metadata:
       labels:
         app: loadgenerator
+        app.kubernetes.io/name: hipster-loadgenerator
+        app.kubernetes.io/part-of: hipster-shop
+        app.kubernetes.io/version: 2.0.3
+        app.kubernetes.io/stage: production
       annotations:
         sidecar.istio.io/rewriteAppHTTPProbers: "true"
     spec:
@@ -472,6 +617,22 @@ spec:
           value: "frontend:80"
         - name: USERS
           value: "10"
+        - name: "DT_RELEASE_VERSION"
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.labels['app.kubernetes.io/version']
+        - name: DT_RELEASE_BUILD_VERSION
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.labels['app.kubernetes.io/version']
+        - name: "DT_RELEASE_PRODUCT"
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.labels['app.kubernetes.io/part-of']
+        - name: DT_RELEASE_STAGE
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.labels['app.kubernetes.io/stage']
         resources:
           requests:
             cpu: 300m
@@ -492,6 +653,10 @@ spec:
     metadata:
       labels:
         app: currencyservice
+        app.kubernetes.io/name: hipster-currencyservice
+        app.kubernetes.io/part-of: hipster-shop
+        app.kubernetes.io/version: 2.0.3
+        app.kubernetes.io/stage: production
     spec:
       serviceAccountName: default
       terminationGracePeriodSeconds: 5
@@ -504,6 +669,22 @@ spec:
         env:
         - name: PORT
           value: "7000"
+        - name: "DT_RELEASE_VERSION"
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.labels['app.kubernetes.io/version']
+        - name: DT_RELEASE_BUILD_VERSION
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.labels['app.kubernetes.io/version']
+        - name: "DT_RELEASE_PRODUCT"
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.labels['app.kubernetes.io/part-of']
+        - name: DT_RELEASE_STAGE
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.labels['app.kubernetes.io/stage']
         # - name: DISABLE_TRACING
         #   value: "1"
         # - name: DISABLE_PROFILER
@@ -522,7 +703,7 @@ spec:
             memory: 64Mi
           limits:
             cpu: 200m
-            memory: 128Mi
+            memory: 128Mi         
 ---
 apiVersion: v1
 kind: Service
@@ -549,6 +730,10 @@ spec:
     metadata:
       labels:
         app: shippingservice
+        app.kubernetes.io/name: hipster-shippingservice
+        app.kubernetes.io/part-of: hipster-shop
+        app.kubernetes.io/version: 2.0.3
+        app.kubernetes.io/stage: production
     spec:
       serviceAccountName: default
       containers:
@@ -559,6 +744,22 @@ spec:
         env:
         - name: PORT
           value: "50051"
+        - name: "DT_RELEASE_VERSION"
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.labels['app.kubernetes.io/version']
+        - name: DT_RELEASE_BUILD_VERSION
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.labels['app.kubernetes.io/version']
+        - name: "DT_RELEASE_PRODUCT"
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.labels['app.kubernetes.io/part-of']
+        - name: DT_RELEASE_STAGE
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.labels['app.kubernetes.io/stage']
         # - name: DISABLE_STATS
         #   value: "1"
         # - name: DISABLE_TRACING
@@ -607,6 +808,10 @@ spec:
     metadata:
       labels:
         app: adservice
+        app.kubernetes.io/name: hipster-adservice
+        app.kubernetes.io/part-of: hipster-shop
+        app.kubernetes.io/version: 2.0.3
+        app.kubernetes.io/stage: production
     spec:
       serviceAccountName: default
       terminationGracePeriodSeconds: 5
@@ -618,6 +823,22 @@ spec:
         env:
         - name: PORT
           value: "9555"
+        - name: "DT_RELEASE_VERSION"
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.labels['app.kubernetes.io/version']
+        - name: DT_RELEASE_BUILD_VERSION
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.labels['app.kubernetes.io/version']
+        - name: "DT_RELEASE_PRODUCT"
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.labels['app.kubernetes.io/part-of']
+        - name: DT_RELEASE_STAGE
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.labels['app.kubernetes.io/stage']
         # - name: DISABLE_STATS
         #   value: "1"
         # - name: DISABLE_TRACING
@@ -668,12 +889,33 @@ spec:
     metadata:
       labels:
         run: nginx
+        app.kubernetes.io/name: hipster-nginx
+        app.kubernetes.io/part-of: hipster-webserver
+        app.kubernetes.io/version: 2.0.3
+        app.kubernetes.io/stage: production
     spec:
       containers:
       - name: nginx
         image: gcr.io/sales-engineering-noram/dt-boutique/frontendreverseproxy:v1
         ports:
         - containerPort: 80
+        env:
+          - name: "DT_RELEASE_VERSION"
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.labels['app.kubernetes.io/version']
+          - name: DT_RELEASE_BUILD_VERSION
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.labels['app.kubernetes.io/version']
+          - name: "DT_RELEASE_PRODUCT"
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.labels['app.kubernetes.io/part-of']
+          - name: DT_RELEASE_STAGE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.labels['app.kubernetes.io/stage']
         volumeMounts:
         - name: config-volume
           mountPath: /etc/nginx/nginx.conf
@@ -744,6 +986,10 @@ spec:
     metadata:
       labels:
         app: redis-cart
+        app.kubernetes.io/name: hipster-redis
+        app.kubernetes.io/part-of: hipster-shop
+        app.kubernetes.io/version: 2.0.3
+        app.kubernetes.io/stage: production
     spec:
       containers:
       - name: redis
@@ -768,6 +1014,23 @@ spec:
           requests:
             cpu: 70m
             memory: 200Mi
+        env:
+          - name: "DT_RELEASE_VERSION"
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.labels['app.kubernetes.io/version']
+          - name: DT_RELEASE_BUILD_VERSION
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.labels['app.kubernetes.io/version']
+          - name: "DT_RELEASE_PRODUCT"
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.labels['app.kubernetes.io/part-of']
+          - name: DT_RELEASE_STAGE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.labels['app.kubernetes.io/stage']
       volumes:
       - name: redis-data
         persistentVolumeClaim:
