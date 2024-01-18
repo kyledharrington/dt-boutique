@@ -517,7 +517,7 @@ kind: Deployment
 metadata:
   name: cartservice
 spec:
-  replicas: 5
+  replicas: 10
   selector:
     matchLabels:
       app: cartservice
