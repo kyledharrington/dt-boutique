@@ -82,6 +82,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: checkoutservice
+  labels:
+    dt.owner: checkout-team
 spec:
   replicas: 2
   selector:
@@ -173,6 +175,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: recommendationservice
+  labels:
+    dt.owner: recommendations-team
 spec:
   replicas: 2
   selector:
@@ -182,7 +186,7 @@ spec:
     metadata:
       labels:
         app: recommendationservice
-        dt.owner: reccomendations-team
+        dt.owner: recomendations-team
         app.kubernetes.io/name: hipster-recommendationservice
         app.kubernetes.io/part-of: hipster-shop
         app.kubernetes.io/version: 2.0.3
@@ -255,6 +259,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: frontend
+  labels:
+    dt.owner: frontend-team
 spec:
   replicas: 3
   selector:
@@ -360,6 +366,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: paymentservice
+  labels:
+    dt.owner: payments-team
 spec:
   replicas: 2
   selector:
@@ -432,6 +440,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: productcatalogservice
+  labels:
+    dt.owner: catalog-team
 spec:
   replicas: 2
   selector:
@@ -512,6 +522,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: cartservice
+  labels:
+    dt.owner: cart-team
 spec:
   replicas: 2
   selector:
@@ -587,6 +599,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: loadgenerator
+  labels:
+    dt.owner: loadgen-team
 spec:
   selector:
     matchLabels:
@@ -643,6 +657,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: currencyservice
+  labels:
+    dt.owner: currency-team
 spec:
   replicas: 2
   selector:
@@ -722,6 +738,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: shippingservice
+  labels:
+    dt.owner: logistics-team
 spec:
   replicas: 2
   selector:
@@ -802,6 +820,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: adservice
+  labels:
+    dt.owner: marketing-team
 spec:
   replicas: 2
   selector:
@@ -884,6 +904,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: nginx
+  labels:
+    dt.owner: infrastructure-team
 spec:
   selector:
     matchLabels:
@@ -893,7 +915,7 @@ spec:
     metadata:
       labels:
         run: nginx
-        dt.owner: infrastrucutre-team
+        dt.owner: infrastructure-team
         app.kubernetes.io/name: hipster-nginx
         app.kubernetes.io/part-of: hipster-webserver
         app.kubernetes.io/version: 2.0.3
@@ -983,6 +1005,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: redis-cart
+  labels:
+    dt.owner: database-team
 spec:
   selector:
     matchLabels:
