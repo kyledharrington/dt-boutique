@@ -28,6 +28,7 @@ spec:
     metadata:
       labels:
         app: emailservice
+        dt.owner: email-team
         app.kubernetes.io/name: hipster-emailservice
         app.kubernetes.io/part-of: hipster-shop
         app.kubernetes.io/version: 2.0.3
@@ -104,6 +105,7 @@ spec:
     metadata:
       labels:
         app: checkoutservice
+        dt.owner: checkout-team
         app.kubernetes.io/name: hipster-checkout
         app.kubernetes.io/part-of: hipster-shop
         app.kubernetes.io/version: 2.0.3
@@ -193,6 +195,7 @@ spec:
     metadata:
       labels:
         app: recommendationservice
+        dt.owner: reccomendations-team
         app.kubernetes.io/name: hipster-recommendationservice
         app.kubernetes.io/part-of: hipster-shop
         app.kubernetes.io/version: 2.0.3
@@ -273,6 +276,7 @@ spec:
     metadata:
       labels:
         app: frontend
+        dt.owner: frontend-team
         app.kubernetes.io/name: hipster-frontend
         app.kubernetes.io/part-of: hipster-shop
         app.kubernetes.io/version: 2.0.3
@@ -376,6 +380,7 @@ spec:
     metadata:
       labels:
         app: paymentservice
+        dt.owner: payments-team
         app.kubernetes.io/name: hipster-paymentservice
         app.kubernetes.io/part-of: hipster-shop
         app.kubernetes.io/version: 2.0.3
@@ -446,6 +451,7 @@ spec:
     metadata:
       labels:
         app: productcatalogservice
+        dt.owner: catalog-team
         app.kubernetes.io/name: hipster-productcatalogservice
         app.kubernetes.io/part-of: hipster-shop
         app.kubernetes.io/version: 2.0.3
@@ -600,6 +606,7 @@ spec:
     metadata:
       labels:
         app: loadgenerator
+        dt.owner: loadgen-team
         app.kubernetes.io/name: hipster-loadgenerator
         app.kubernetes.io/part-of: hipster-shop
         app.kubernetes.io/version: 2.0.3
@@ -654,6 +661,7 @@ spec:
     metadata:
       labels:
         app: currencyservice
+        dt.owner: currency-team
         app.kubernetes.io/name: hipster-currencyservice
         app.kubernetes.io/part-of: hipster-shop
         app.kubernetes.io/version: 2.0.3
@@ -731,6 +739,7 @@ spec:
     metadata:
       labels:
         app: shippingservice
+        dt.owner: logistcs-team
         app.kubernetes.io/name: hipster-shippingservice
         app.kubernetes.io/part-of: hipster-shop
         app.kubernetes.io/version: 2.0.3
@@ -809,6 +818,7 @@ spec:
     metadata:
       labels:
         app: adservice
+        dt.owner: marketing-team
         app.kubernetes.io/name: hipster-adservice
         app.kubernetes.io/part-of: hipster-shop
         app.kubernetes.io/version: 2.0.3
@@ -890,6 +900,7 @@ spec:
     metadata:
       labels:
         run: nginx
+        dt.owner: infrastrucutre-team
         app.kubernetes.io/name: hipster-nginx
         app.kubernetes.io/part-of: hipster-webserver
         app.kubernetes.io/version: 2.0.3
@@ -987,6 +998,7 @@ spec:
     metadata:
       labels:
         app: redis-cart
+        dt.owner: database-team
         app.kubernetes.io/name: hipster-redis
         app.kubernetes.io/part-of: hipster-shop
         app.kubernetes.io/version: 2.0.3
