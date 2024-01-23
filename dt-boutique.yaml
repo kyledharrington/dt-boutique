@@ -16,7 +16,7 @@ spec:
         dt.owner: email-team
         app.kubernetes.io/name: hipster-emailservice
         app.kubernetes.io/part-of: hipster-shop
-        app.kubernetes.io/version: 2.0.3
+        app.kubernetes.io/version: 3.0.1
         app.kubernetes.io/stage: production
     spec:
       serviceAccountName: default
@@ -96,7 +96,7 @@ spec:
         dt.owner: checkout-team
         app.kubernetes.io/name: hipster-checkout
         app.kubernetes.io/part-of: hipster-shop
-        app.kubernetes.io/version: 2.0.3
+        app.kubernetes.io/version: 3.0.1
         app.kubernetes.io/stage: production
     spec:
       serviceAccountName: default
@@ -189,7 +189,7 @@ spec:
         dt.owner: recomendations-team
         app.kubernetes.io/name: hipster-recommendationservice
         app.kubernetes.io/part-of: hipster-shop
-        app.kubernetes.io/version: 2.0.3
+        app.kubernetes.io/version: 3.0.1
         app.kubernetes.io/stage: production      
     spec:
       serviceAccountName: default
@@ -273,7 +273,7 @@ spec:
         dt.owner: frontend-team
         app.kubernetes.io/name: hipster-frontend
         app.kubernetes.io/part-of: hipster-shop
-        app.kubernetes.io/version: 2.0.3
+        app.kubernetes.io/version: 3.0.1
         app.kubernetes.io/stage: production
       annotations:
         sidecar.istio.io/rewriteAppHTTPProbers: "true"
@@ -380,7 +380,7 @@ spec:
         dt.owner: payments-team
         app.kubernetes.io/name: hipster-paymentservice
         app.kubernetes.io/part-of: hipster-shop
-        app.kubernetes.io/version: 2.0.3
+        app.kubernetes.io/version: 3.0.1
         app.kubernetes.io/stage: production
     spec:
       serviceAccountName: default
@@ -454,7 +454,7 @@ spec:
         dt.owner: catalog-team
         app.kubernetes.io/name: hipster-productcatalogservice
         app.kubernetes.io/part-of: hipster-shop
-        app.kubernetes.io/version: 2.0.3
+        app.kubernetes.io/version: 3.0.1
         app.kubernetes.io/stage: production
     spec:
       serviceAccountName: default
@@ -536,7 +536,7 @@ spec:
         dt.owner: cart-team
         app.kubernetes.io/name: hipster-cartservice
         app.kubernetes.io/part-of: hipster-shop
-        app.kubernetes.io/version: 2.0.3
+        app.kubernetes.io/version: 3.0.1
         app.kubernetes.io/stage: production
     spec:
       serviceAccountName: default
@@ -613,7 +613,7 @@ spec:
         dt.owner: loadgen-team
         app.kubernetes.io/name: hipster-loadgenerator
         app.kubernetes.io/part-of: hipster-shop
-        app.kubernetes.io/version: 2.0.3
+        app.kubernetes.io/version: 3.0.1
         app.kubernetes.io/stage: production
       annotations:
         sidecar.istio.io/rewriteAppHTTPProbers: "true"
@@ -671,7 +671,7 @@ spec:
         dt.owner: currency-team
         app.kubernetes.io/name: hipster-currencyservice
         app.kubernetes.io/part-of: hipster-shop
-        app.kubernetes.io/version: 2.0.3
+        app.kubernetes.io/version: 3.0.1
         app.kubernetes.io/stage: production
     spec:
       serviceAccountName: default
@@ -752,7 +752,7 @@ spec:
         dt.owner: logistcs-team
         app.kubernetes.io/name: hipster-shippingservice
         app.kubernetes.io/part-of: hipster-shop
-        app.kubernetes.io/version: 2.0.3
+        app.kubernetes.io/version: 3.0.1
         app.kubernetes.io/stage: production
     spec:
       serviceAccountName: default
@@ -834,7 +834,7 @@ spec:
         dt.owner: marketing-team
         app.kubernetes.io/name: hipster-adservice
         app.kubernetes.io/part-of: hipster-shop
-        app.kubernetes.io/version: 2.0.3
+        app.kubernetes.io/version: 3.0.1
         app.kubernetes.io/stage: production
     spec:
       serviceAccountName: default
@@ -918,7 +918,7 @@ spec:
         dt.owner: infrastructure-team
         app.kubernetes.io/name: hipster-nginx
         app.kubernetes.io/part-of: hipster-webserver
-        app.kubernetes.io/version: 2.0.3
+        app.kubernetes.io/version: 3.0.1
         app.kubernetes.io/stage: production
     spec:
       containers:
@@ -1019,7 +1019,7 @@ spec:
         dt.owner: database-team
         app.kubernetes.io/name: hipster-redis
         app.kubernetes.io/part-of: hipster-shop
-        app.kubernetes.io/version: 2.0.3
+        app.kubernetes.io/version: 3.0.1
         app.kubernetes.io/stage: production
     spec:
       containers:
