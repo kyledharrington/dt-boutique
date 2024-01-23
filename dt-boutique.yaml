@@ -875,7 +875,7 @@ spec:
             memory: 180Mi
           limits:
             cpu: 300m
-            memory: 50Mi
+            memory: 200Mi
         readinessProbe:
           initialDelaySeconds: 20
           periodSeconds: 15
