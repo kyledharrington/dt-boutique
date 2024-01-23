@@ -5,7 +5,7 @@ metadata:
   labels:
     dt.owner: email-team
 spec:
-  replicas: 2
+  replicas: 3
   selector:
     matchLabels:
       app: emailservice
@@ -85,7 +85,7 @@ metadata:
   labels:
     dt.owner: checkout-team
 spec:
-  replicas: 2
+  replicas: 3
   selector:
     matchLabels:
       app: checkoutservice
@@ -178,7 +178,7 @@ metadata:
   labels:
     dt.owner: recommendations-team
 spec:
-  replicas: 2
+  replicas: 3
   selector:
     matchLabels:
       app: recommendationservice
@@ -369,7 +369,7 @@ metadata:
   labels:
     dt.owner: payments-team
 spec:
-  replicas: 2
+  replicas: 3
   selector:
     matchLabels:
       app: paymentservice
@@ -443,7 +443,7 @@ metadata:
   labels:
     dt.owner: catalog-team
 spec:
-  replicas: 2
+  replicas: 3
   selector:
     matchLabels:
       app: productcatalogservice
@@ -525,7 +525,7 @@ metadata:
   labels:
     dt.owner: cart-team
 spec:
-  replicas: 2
+  replicas: 3
   selector:
     matchLabels:
       app: cartservice
@@ -660,7 +660,7 @@ metadata:
   labels:
     dt.owner: currency-team
 spec:
-  replicas: 2
+  replicas: 3
   selector:
     matchLabels:
       app: currencyservice
@@ -741,7 +741,7 @@ metadata:
   labels:
     dt.owner: logistics-team
 spec:
-  replicas: 2
+  replicas: 3
   selector:
     matchLabels:
       app: shippingservice
@@ -823,7 +823,7 @@ metadata:
   labels:
     dt.owner: marketing-team
 spec:
-  replicas: 2
+  replicas: 3
   selector:
     matchLabels:
       app: adservice
@@ -910,7 +910,7 @@ spec:
   selector:
     matchLabels:
       run: nginx
-  replicas: 2
+  replicas: 3
   template:
     metadata:
       labels:
@@ -1008,6 +1008,7 @@ metadata:
   labels:
     dt.owner: database-team
 spec:
+  replicas: 1
   selector:
     matchLabels:
       app: redis-cart
