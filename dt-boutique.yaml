@@ -872,10 +872,10 @@ spec:
         resources:
           requests:
             cpu: 200m
-            memory: 50Mi
+            memory: 100Mi
           limits:
             cpu: 300m
-            memory: 100Mi
+            memory: 500Mi
         readinessProbe:
           initialDelaySeconds: 20
           periodSeconds: 15
