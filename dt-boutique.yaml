@@ -716,10 +716,10 @@ spec:
         resources:
           requests:
             cpu: 100m
-            memory: 25Mi
+            memory: 50Mi
           limits:
             cpu: 300m
-            memory: 50Mi         
+            memory: 100Mi         
 ---
 apiVersion: v1
 kind: Service
