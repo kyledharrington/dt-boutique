@@ -1170,7 +1170,7 @@ rules:
   kind: Role
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
-  namespace: namespace1
+  namespace: dt-boutique
   name: dynatrace-oneagent-metadata-viewer
 rules:
 - apiGroups: [""]
@@ -1181,7 +1181,7 @@ kind: RoleBinding
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
   name: dynatrace-oneagent-metadata-viewer-binding
-  namespace: namespace1
+  namespace: dt-boutique
 subjects:
 - kind: ServiceAccount
   name: default
