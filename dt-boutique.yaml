@@ -503,7 +503,7 @@ spec:
             memory: 50Mi
           limits:
             cpu: 300m
-            memory: 60Mi
+            memory: 100Mi
 ---
 apiVersion: v1
 kind: Service
