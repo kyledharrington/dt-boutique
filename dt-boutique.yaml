@@ -387,7 +387,8 @@ spec:
       terminationGracePeriodSeconds: 5
       containers:
       - name: server
-        image: gcr.io/sales-engineering-noram/dt-boutique/paymentservice:v1
+        #image: gcr.io/sales-engineering-noram/dt-boutique/paymentservice:v1
+        image: gcr.io/dynatrace-demoability/online-boutique/paymentservice:bb9f28d
         ports:
         - containerPort: 50051
         env:
