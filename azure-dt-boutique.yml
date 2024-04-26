@@ -675,7 +675,7 @@ spec:
         app.kubernetes.io/stage: production
     spec:
       serviceAccountName: default
-      terminationGracePeriodSeconds: 5
+      #terminationGracePeriodSeconds: 120
       containers:
       - name: server
         image: gcr.io/sales-engineering-noram/dt-boutique/currencyservice:v1
@@ -703,23 +703,31 @@ spec:
               fieldPath: metadata.labels['app.kubernetes.io/stage']
         # - name: DISABLE_TRACING
         #   value: "1"
-        # - name: DISABLE_PROFILER
-        #   value: "1"
-        # - name: DISABLE_DEBUGGER
-        #   value: "1"
+        - name: DISABLE_PROFILER
+          value: "1"
+        - name: DISABLE_DEBUGGER
+          value: "1"
         readinessProbe:
+          failureThreshold: 5
+          initialDelaySeconds: 120
+          periodSeconds: 10
+          timeoutSeconds: 120
           exec:
             command: ["/bin/grpc_health_probe", "-addr=:7000"]
         livenessProbe:
+          failureThreshold: 5
+          initialDelaySeconds: 120
+          periodSeconds: 10
+          timeoutSeconds: 120
           exec:
             command: ["/bin/grpc_health_probe", "-addr=:7000"]
         resources:
           requests:
             cpu: 100m
-            memory: 50Mi
+            memory: 250Mi
           limits:
             cpu: 300m
-            memory: 100Mi         
+            memory: 500Mi         
 ---
 apiVersion: v1
 kind: Service
@@ -872,11 +880,11 @@ spec:
         resources:
           requests:
             cpu: 200m
-            memory: 500Mi
+            memory: 100Mi
             #memory: 50Mi
           limits:
             cpu: 300m
-            memory: 900Mi
+            memory: 500Mi
             #memory: 100Mi
         readinessProbe:
           initialDelaySeconds: 20
@@ -1097,7 +1105,7 @@ spec:
   resources:
     requests:
       storage: 10Gi
-  storageClassName: standard-rwo
+  storageClassName: managed-csi
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
@@ -1172,7 +1180,7 @@ rules:
 kind: Role
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
-  namespace: dt-boutique
+  namespace: production-shop
   name: dynatrace-oneagent-metadata-viewer
 rules:
 - apiGroups: [""]
@@ -1183,7 +1191,7 @@ kind: RoleBinding
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
   name: dynatrace-oneagent-metadata-viewer-binding
-  namespace: dt-boutique
+  namespace: production-shop
 subjects:
 - kind: ServiceAccount
   name: default
