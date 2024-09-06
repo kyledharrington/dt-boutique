@@ -831,7 +831,7 @@ metadata:
   labels:
     dt.owner: marketing-team
 spec:
-  replicas: 6
+  replicas: 3
   selector:
     matchLabels:
       app: adservice
@@ -880,12 +880,12 @@ spec:
         resources:
           requests:
             cpu: 200m
-            memory: 100Mi
-            #memory: 50Mi
+            #memory: 100Mi
+            memory: 50Mi
           limits:
             cpu: 300m
-            memory: 500Mi
-            #memory: 100Mi
+            #memory: 500Mi
+            memory: 100Mi
         readinessProbe:
           initialDelaySeconds: 20
           periodSeconds: 15
