@@ -1096,8 +1096,8 @@ spec:
     - ReadWriteOnce
   resources:
     requests:
-      storage: 10Gi
-  storageClassName: standard-rwo
+      storage: 1Gi
+  storageClassName: standard
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
