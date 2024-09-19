@@ -961,12 +961,12 @@ metadata:
 spec:
   selector:
     run: nginxports:
-  - name: http
-    port: 80
-    protocol: TCP
-    targetPort: 80
-    nodePort: 30100
-  type: NodePort
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+      nodePort: 30100
+    type: NodePort
 ---
 apiVersion: v1
 kind: ConfigMap
