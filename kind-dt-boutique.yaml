@@ -960,7 +960,7 @@ metadata:
   name: nginx
 spec:
   selector:
-    run: nginxports:
+    run: nginx
   ports:
     - protocol: TCP
       port: 80
