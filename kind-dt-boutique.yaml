@@ -962,11 +962,11 @@ spec:
   selector:
     run: nginx
   ports:
-    - protocol: TCP
-      port: 80
-      targetPort: 80
-      nodePort: 30100
-    type: NodePort
+  - protocol: TCP
+    port: 80
+    targetPort: 80
+    nodePort: 30100
+  type: NodePort
 ---
 apiVersion: v1
 kind: ConfigMap
