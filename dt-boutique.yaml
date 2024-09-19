@@ -820,6 +820,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: adservice
+  annotations:
+    oneagent.dynatrace.com/inject: "true"
   labels:
     dt.owner: marketing-team
 spec:

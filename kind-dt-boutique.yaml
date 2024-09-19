@@ -959,18 +959,14 @@ kind: Service
 metadata:
   name: nginx
 spec:
-  ports:
+  selector:
+    run: nginxports:
   - name: http
     port: 80
     protocol: TCP
     targetPort: 80
-  - name: https
-    port: 443
-    protocol: TCP
-    targetPort: 80
-  selector:
-    run: nginx
-  type: LoadBalancer
+    nodePort: 30100
+  type: NodePort
 ---
 apiVersion: v1
 kind: ConfigMap
